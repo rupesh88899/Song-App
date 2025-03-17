@@ -192,9 +192,16 @@ class MusicPlayer extends ConsumerWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(10.0),
-                        child: Image.asset(
-                          'assets/images/shuffle.png',
-                          color: Pallete.whiteColor,
+                        child: InkWell(
+                          onTap: () async {
+                            await ref
+                                .read(homeViewModelProvider.notifier)
+                                .playRandomSong();
+                          },
+                          child: Image.asset(
+                            'assets/images/shuffle.png',
+                            color: Pallete.whiteColor,
+                          ),
                         ),
                       ),
                       Padding(
